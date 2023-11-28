@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Sorting</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin: 0 auto;
+        padding: 20px;
+        max-width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Array Sorting</h1>
+      <label for="numberInput">Enter Comma Separated Array:</label>
+      <input type="text" id="inputArray" />
+      <button onclick="sortArray()">Sort Array</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function sortArray() {
+        var inputArray = document.getElementById("inputArray").value;
+        var result = sortArrayFunction(inputArray);
+        document.getElementById("result").innerHTML =
+          "Sorted Array Descending: " + result;
+      }
+
+      function sortArrayFunction(inputArray) {
+        var array = inputArray.split(",").map(Number);
+        array.sort(function (a, b) {
+          return b - a; // Sort in descending order
+        });
+
+        return array.join(", ");
+      }
+    </script>
+  </body>
+</html>
